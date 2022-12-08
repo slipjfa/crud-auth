@@ -10,8 +10,11 @@ import { signIn } from "next-auth/react"
 export default function Login() {
   const [show, setShow] = useState(false);
   async function handleGoogleSignIn() {
-    
     signIn('google', { callbackUrl: process.env.NEXT_PUBLIC_BASE_URL })
+  }
+
+  async function handleGithubSignIn() {
+    signIn('github', { callbackUrl: process.env.NEXT_PUBLIC_BASE_URL })
   }
 
   return (
@@ -69,7 +72,7 @@ export default function Login() {
             </button>
           </div>
           <div className="input-button">
-            <button type="button" className={styles.button_custom}>
+            <button type="button" onClick={handleGithubSignIn} className={styles.button_custom}>
               Sign In with Github{" "}
               <Image src={"/assets/github.svg"} width={25} height={25} alt="github"></Image>
             </button>
