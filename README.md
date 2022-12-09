@@ -1,2 +1,7 @@
 # next-crud-auth
-Authentication system with simple CRUD on Next.js. In progress. Google OAuth is already functional.
+Training Next.js project.
+
+Google and Github OAuth and "local" credentials on Mongodb.
+
+Working CRUD.
+

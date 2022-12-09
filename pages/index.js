@@ -44,19 +44,22 @@ function Guest() {
   );
 }
 
-function solution(number){
+function solution(number) {
   let i = 0;
   let j = [];
   if (number < 0) {
     return 0;
   } else {
     while (number > i) {
-      if ( i % 3 == 0 || i % 5 == 0) j.push(i);
+      if (i % 3 == 0 || i % 5 == 0) j.push(i);
       i++;
     }
-    const sumAll = j.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const sumAll = j.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
     return sumAll;
-  }  
+  }
 }
 
 export function Dashboard() {
@@ -105,10 +108,10 @@ export function Dashboard() {
           {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
         </div>
 
-        {visible ? <Form/> : <></>}
+        {visible ? <Form /> : <></>}
 
         <div className="container mx-auto">
-          <Table/>
+          <Table />
         </div>
       </main>
     </section>
@@ -146,11 +149,9 @@ function User({ session, handleSignOut }) {
     <main className="container mx-auto text-center py-2">
       <div className="container flex gap-2">
         <div className="flex-none pwd basis-1/4">
-          <h3 className="text-base py-3 font-bold">
-            Authorized User Homepage
-          </h3>
+          <h3 className="text-base py-3 font-bold">Authorized User Homepage</h3>
         </div>
-        
+
         <div className="details flex-auto basis-1/2">
           <h5>{session.user.name}</h5>
           <h5>{session.user.email}</h5>
@@ -160,7 +161,8 @@ function User({ session, handleSignOut }) {
           <Link
             href={"/profile"}
             className="px-3 py-1 rounded-lg border text-gray-50 bg-indigo-500 
-            hover:bg-gray-50 hover:border hover:border-indigo-500 hover:text-indigo-500">
+            hover:bg-gray-50 hover:border hover:border-indigo-500 hover:text-indigo-500"
+          >
             Profile Page
           </Link>
         </div>
@@ -169,11 +171,11 @@ function User({ session, handleSignOut }) {
           <button
             onClick={handleSignOut}
             className="px-3 py-1 rounded-lg border text-gray-50 bg-indigo-500 
-            hover:bg-gray-50 hover:border hover:border-indigo-500 hover:text-indigo-500">
+            hover:bg-gray-50 hover:border hover:border-indigo-500 hover:text-indigo-500"
+          >
             Sign Out
           </button>
         </div>
-
       </div>
       <Dashboard />
     </main>
