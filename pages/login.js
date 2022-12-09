@@ -8,8 +8,12 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useFormik } from "formik";
 import login_validate from "../lib/validate";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const [show, setShow] = useState(false);
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -20,7 +24,14 @@ export default function Login() {
   });
 
   async function onSubmit(values) {
-    console.log(values);
+    const status = await signIn("credentials", {
+      redirect: false,
+      email: values.email,
+      password: values.password,
+      callbackUrl: "/",
+    });
+
+    if (status.ok) router.push(status.url);
   }
 
   async function handleGoogleSignIn() {
@@ -30,8 +41,6 @@ export default function Login() {
   async function handleGithubSignIn() {
     signIn("github", { callbackUrl: process.env.NEXT_PUBLIC_BASE_URL });
   }
-
-  const [show, setShow] = useState(false);
 
   return (
     <Layout>
@@ -50,7 +59,13 @@ export default function Login() {
         </div>
 
         <form className="flex flex-col gap-2" onSubmit={formik.handleSubmit}>
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group} ${
+              formik.errors.email && formik.touched.email
+                ? "border-rose-600"
+                : ""
+            }`}
+          >
             <input
               type="email"
               name="email"
@@ -62,12 +77,18 @@ export default function Login() {
               <HiAtSymbol size={25} />
             </span>
           </div>
-          {formik.errors.email && formik.touched.email ? (
+          {/* {formik.errors.email && formik.touched.email ? (
             <span className="text-xs text-rose-500">{formik.errors.email}</span>
           ) : (
             <> </>
-          )}
-          <div className={styles.input_group}>
+          )} */}
+          <div
+            className={`${styles.input_group} ${
+              formik.errors.password && formik.touched.password
+                ? "border-rose-600"
+                : ""
+            }`}
+          >
             <input
               type={`${show ? "text" : "password"}`}
               name="password"
@@ -82,13 +103,13 @@ export default function Login() {
               <HiFingerPrint size={25} />
             </span>
           </div>
-          {formik.errors.password && formik.touched.password ? (
+          {/* {formik.errors.password && formik.touched.password ? (
             <span className="text-xs text-rose-500">
               {formik.errors.password}
-            </span>
+            
           ) : (
             <> </>
-          )}
+          )} */}
 
           <div className="input-button">
             <button type="submit" className={styles.button}>

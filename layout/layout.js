@@ -14,7 +14,7 @@ export default function Layout({ children }) {
           </div>
         </div>
         <div className="right flex flex-col justify-evenly bg-slate=100 dark:bg-[#D8E9A8]">
-          <div className="text-center py-8">
+          <div className="text-center py-10">
           {children}
           </div>
         </div>
