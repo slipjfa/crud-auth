@@ -45,15 +45,15 @@ export default function Login() {
   return (
     <Layout>
       <Head>
-        <title>Login</title>
+        <title>Login - RoE Manager</title>
       </Head>
 
-      <section className="w-3/4 mx-auto flex flex-col gap-6">
+      <section className="w-5/6 mx-auto flex flex-col lg:gap-4">
         <div className="title">
-          <h1 className="text-gray-800 text-4xl dark:text-gray-200 font-bold">
+          <h1 className="text-gray-800 text-xl dark:text-gray-800 font-bold lg:text-4xl">
             Explore
           </h1>
-          <p className="w-4/5 mx-auto text-gray-400 dark:text-gray-400 text-sm">
+          <p className="w-3/4 mx-auto text-gray-400 dark:text-gray-400 text-sm lg:text-base">
             Take a look around. It works!
           </p>
         </div>
@@ -148,7 +148,7 @@ export default function Login() {
           </div>
         </form>
 
-        <p className="text-center text-gray-500 text-sm">
+        <p className="text-center text-gray-500 text-sm mt-2">
           No account?{" "}
           <Link href={"/register"} className="text-blue-700">
             Sign Up

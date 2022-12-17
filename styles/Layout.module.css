@@ -1,5 +1,5 @@
 .imgStyle {
-  @apply bg-gradient-to-r from-blue-500 to-indigo-500 rounded-l-md;
+  @apply bg-gradient-to-r from-blue-500 to-indigo-500 mt-[-6rem] lg:mt-0 mb-[6rem] lg:mb-0 ;
   @apply dark:bg-gradient-to-r dark:from-[#1E5128] dark:via-[#4E9F3D] dark:to-[#1E5128];
   position: relative;
   overflow: hidden;
@@ -24,10 +24,10 @@
   position: absolute;
   top: 65%;
   left: 10%;
-  width: 180px;
-  height: 100px;
+  @apply w-[90px] lg:w-[180px];
+  @apply h-[50px] lg:h-[100px];
   background-size: contain;
-  z-index: 2;
+  z-index: 0;
   transform: translateX(290%);
   animation: cloud_one 25.5s ease-in 5.9s infinite;
 }
@@ -35,12 +35,12 @@
 .cloud_two {
   background: url("/assets/cloud_1.png") no-repeat;
   position: absolute;
-  top: 49%;
+  top: 79%;
   left: 50%;
-  width: 200px;
-  height: 100px;
+  @apply w-[100px] lg:w-[200px];
+  @apply h-[50px] lg:h-[100px];
   background-size: contain;
-  z-index: 0;
+  z-index: 2;
   transform: translateX(290%);
   animation: cloud_two 18.5s ease-in .9s infinite;
 }

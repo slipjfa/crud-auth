@@ -44,13 +44,13 @@ export default function Register() {
       <Head>
         <title>Register</title>
       </Head>
-      <section className="w-3/4 mx-auto flex flex-col gap-8">
+      <section className="w-5/6 lg:w-3/4 mx-auto flex flex-col gap-2 lg:gap-10">
         <div className="title">
-          <h1 className="text-gray-800 text-4xl font-bold ">Register</h1>
-          <p className="w-4/5 mx-auto mt-1 text-gray-400 text-xs">Get in!</p>
+          <h1 className="text-gray-800 text-4xl font-bold lg:text-4xl">Register</h1>
+          <p className="w-4/5 mx-auto text-gray-400 text-xs lg:text-xl">Get in!</p>
         </div>
 
-        <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
+        <form className="flex flex-col gap-2" onSubmit={formik.handleSubmit}>
           <div
             className={`${styles.input_group} ${
               formik.errors.username && formik.touched.username
@@ -61,7 +61,7 @@ export default function Register() {
             <input
               type="text"
               name="Username"
-              placeholder="Username"
+              placeholder="Name"
               className={styles.input_text}
               {...formik.getFieldProps("username")}
             />
@@ -166,7 +166,7 @@ export default function Register() {
           </div>
         </form>
 
-        <p className="text-center text-gray-500 text-xs">
+        <p className="text-center text-gray-500 text-sm">
           Already have an account?{" "}
           <Link href={"/login"} className="text-blue-700">
             Sign In
